@@ -1,0 +1,6 @@
+body { background: #f4f7fb; }
+.sidebar { width: 260px; }
+.card { border: 0; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); }
+.table th { font-size: 0.9rem; }
+.badge { font-size: 0.8rem; }
+.nav-link:hover { color: #7dd3fc !important; }

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TransitOps</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+</head>
+<body>
+    <div class="d-flex">
+        <aside class="sidebar bg-dark text-white p-3 min-vh-100">
+            <h4 class="fw-bold mb-4">TransitOps</h4>
+            <ul class="nav flex-column gap-2">
+                <li><a class="nav-link text-white" href="{% url 'dashboard' %}"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
+                <li><a class="nav-link text-white" href="{% url 'vehicle_list' %}"><i class="bi bi-truck"></i> Vehicles</a></li>
+                <li><a class="nav-link text-white" href="{% url 'driver_list' %}"><i class="bi bi-person-badge"></i> Drivers</a></li>
+                <li><a class="nav-link text-white" href="{% url 'trip_list' %}"><i class="bi bi-signpost-split"></i> Trips</a></li>
+                <li><a class="nav-link text-white" href="{% url 'maintenance_list' %}"><i class="bi bi-tools"></i> Maintenance</a></li>
+                <li><a class="nav-link text-white" href="{% url 'expense_list' %}"><i class="bi bi-cash-stack"></i> Expenses</a></li>
+                <li><a class="nav-link text-white" href="{% url 'report_dashboard' %}"><i class="bi bi-bar-chart-line"></i> Reports</a></li>
+            </ul>
+        </aside>
+        <main class="flex-grow-1 bg-light">
+            <nav class="navbar navbar-expand-lg navbar-white bg-white border-bottom px-4 py-3">
+                <div class="container-fluid">
+                    <div class="d-flex align-items-center gap-3">
+                        <h5 class="mb-0">Smart Transport Operations Platform</h5>
+                    </div>
+                    <div class="d-flex align-items-center gap-3">
+                        <span class="text-muted">Welcome, {{ request.user.username|default:'Guest' }}</span>
+                        <a class="btn btn-outline-danger btn-sm" href="{% url 'logout' %}">Logout</a>
+                    </div>
+                </div>
+            </nav>
+            <div class="p-4">
+                {% block content %}{% endblock %}
+            </div>
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
